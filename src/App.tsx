@@ -79,7 +79,7 @@ type TranscriptSection = {
 
 const participants: Participant[] = [
   // Wenn du die Bilder lokal einfügst, lege sie im public-Ordner ab:
-  // /arslan.jpg, /alexandra.jpg, /lyudmila.jpg
+  // /arslan.jpeg, /alexandra.jpeg, /lyudmila.jpeg
   // Dann werden sie hier automatisch angezeigt.
   {
     id: 1,
@@ -133,7 +133,7 @@ const participants: Participant[] = [
     philosophy:
       "Zeit ist für ihn eher Feind als Ressource, weil sie vergeht, während man versucht, sie zu managen. Vergänglichkeit bewertet er nicht negativ, sondern sogar als befreiend. Perfektion und den perfekten Zeitpunkt hält er für absurde Ideen.",
     excerpt: "Zeit ist für mich eher etwas, gegen das man ankämpfen muss.",
-    image: "/arslan.jpg",
+    image: "/arslan.jpeg",
   },
   {
     id: 4,
@@ -151,7 +151,7 @@ const participants: Participant[] = [
     philosophy:
       "Zeit ist für sie kein Feind, sondern Potenzial – wie eine leere Leinwand. Vergänglichkeit findet sie schön, weil Dinge in anderer Form weitergehen können. Begrenzte Zeit verleiht Handlungen Bedeutung.",
     excerpt: "Zeit ist Potenzial. Sie ist wie eine leere Leinwand.",
-    image: "/alexandra.jpg",
+    image: "/alexandra.jpeg",
   },
   {
     id: 5,
@@ -169,7 +169,7 @@ const participants: Participant[] = [
     philosophy:
       "Vergänglichkeit ist für sie ein natürlicher Zustand: Etwas vergeht, etwas Neues kommt. Einen perfekten Zeitpunkt gibt es nicht wirklich; er wird meist von aussen diktiert. Unendliche Zeit würde ihr eher Angst machen.",
     excerpt: "Etwas vergeht, etwas kommt neu.",
-    image: "/lyudmila.jpg",
+    image: "/lyudmila.jpeg",
   },
   {
     id: 6,
