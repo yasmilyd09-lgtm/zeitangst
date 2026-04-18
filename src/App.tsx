@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,75 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Brain, Clock3, Hourglass, Sparkles, UserRound, BookOpen, FileText, Quote } from "lucide-react";
 
-const participants = [
+type Participant = {
+  id: number;
+  name: string;
+  age: number;
+  ageLabel: string;
+  summary: string;
+  keywords: string[];
+  color: string;
+  psychology: string;
+  pedagogy: string;
+  philosophy: string;
+  excerpt: string;
+  image: string | null;
+};
+
+type InterviewAnswer = {
+  age: number;
+  name: string;
+  text: string;
+};
+
+type InterviewQuestion = {
+  q: string;
+  answers: InterviewAnswer[];
+};
+
+type SimilarityOption = {
+  text: string;
+  weights: number[];
+};
+
+type SimilarityQuestion = {
+  question: string;
+  options: SimilarityOption[];
+};
+
+type TheoryName = "Augustinus" | "Marcus Aurelius" | "Kant" | "Nietzsche";
+
+type TheoryOption = {
+  text: string;
+  theory: TheoryName;
+};
+
+type TheoryQuestion = {
+  question: string;
+  options: TheoryOption[];
+};
+
+type SectionTitleProps = {
+  icon: React.ComponentType<{ className?: string }>;
+  eyebrow: string;
+  title: string;
+  text: string;
+};
+
+type PersonDetailDialogProps = {
+  selected: Participant | null;
+  setSelected: (person: Participant | null) => void;
+};
+
+type TranscriptSectionKey = "psychology" | "pedagogy" | "philosophy";
+
+type TranscriptSection = {
+  key: TranscriptSectionKey;
+  title: string;
+  subtitle: string;
+};
+
+const participants: Participant[] = [
   // Wenn du die Bilder lokal einfügst, lege sie im public-Ordner ab:
   // /arslan.jpg, /alexandra.jpg, /lyudmila.jpg
   // Dann werden sie hier automatisch angezeigt.
@@ -123,7 +191,7 @@ const participants = [
   },
 ];
 
-const interviewQuestions = [
+const interviewQuestions: InterviewQuestion[] = [
   {
     q: "Wann spürst du besonders stark, dass Zeit schnell oder langsam vergeht?",
     answers: [
@@ -213,7 +281,7 @@ const transcriptQuestionTemplate = {
   ],
 };
 
-const similarityQuiz = [
+const similarityQuiz: SimilarityQuestion[] = [
   {
     question: "Wie fühlt sich ein freier Nachmittag für dich am ehesten an?",
     options: [
@@ -271,7 +339,7 @@ const similarityQuiz = [
   },
 ];
 
-const theoryQuiz = [
+const theoryQuiz: TheoryQuestion[] = [
   {
     question: "Wie würdest du Zeit am ehesten verstehen?",
     options: [
@@ -310,7 +378,7 @@ const theoryQuiz = [
   },
 ];
 
-const theoryDescriptions = {
+const theoryDescriptions: Record<TheoryName, { title: string; text: string }> = {
   Augustinus: {
     title: "Augustinus – Zeit als inneres Erleben",
     text: "Bei Augustinus lebt Zeit im Bewusstsein: Vergangenheit als Erinnerung, Gegenwart als Aufmerksamkeit, Zukunft als Erwartung. Das passt stark zu subjektiver Zeitwahrnehmung und dazu, wie Angst vor Zeit im Inneren entsteht.",
@@ -329,7 +397,7 @@ const theoryDescriptions = {
   },
 };
 
-function scoreSimilarity(answers) {
+function scoreSimilarity(answers: Array<number | null>) {
   const totals = new Array(participants.length).fill(0);
   answers.forEach((answerIndex, qIndex) => {
     if (answerIndex == null) return;
@@ -343,8 +411,13 @@ function scoreSimilarity(answers) {
   return { winner: participants[winnerIndex], totals };
 }
 
-function scoreTheory(answers) {
-  const totals = {};
+function scoreTheory(answers: Array<number | null>) {
+  const totals: Record<TheoryName, number> = {
+    Augustinus: 0,
+    "Marcus Aurelius": 0,
+    Kant: 0,
+    Nietzsche: 0,
+  };
   answers.forEach((answerIndex, qIndex) => {
     if (answerIndex == null) return;
     const theory = theoryQuiz[qIndex].options[answerIndex].theory;
@@ -354,7 +427,7 @@ function scoreTheory(answers) {
   return { winner, totals };
 }
 
-function SectionTitle({ icon: Icon, eyebrow, title, text }) {
+function SectionTitle({ icon: Icon, eyebrow, title, text }: SectionTitleProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-2 text-sm text-slate-500">
@@ -367,7 +440,7 @@ function SectionTitle({ icon: Icon, eyebrow, title, text }) {
   );
 }
 
-function PersonDetailDialog({ selected, setSelected }) {
+function PersonDetailDialog({ selected, setSelected }: PersonDetailDialogProps) {
   return (
     <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -447,7 +520,7 @@ function PersonDetailDialog({ selected, setSelected }) {
 }
 
 function TimelineSection() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Participant | null>(null);
 
   return (
     <section id="zeitstrahl" className="space-y-8">
@@ -531,7 +604,7 @@ function QuestionsSection() {
 }
 
 function SimilarityQuizSection() {
-  const [answers, setAnswers] = useState(Array(similarityQuiz.length).fill(null));
+  const [answers, setAnswers] = useState<Array<number | null>>(Array(similarityQuiz.length).fill(null));
   const result = useMemo(() => scoreSimilarity(answers), [answers]);
   const answeredCount = answers.filter((entry) => entry != null).length;
   const complete = answeredCount === similarityQuiz.length;
@@ -605,7 +678,7 @@ function SimilarityQuizSection() {
 }
 
 function TheoryQuizSection() {
-  const [answers, setAnswers] = useState(Array(theoryQuiz.length).fill(null));
+  const [answers, setAnswers] = useState<Array<number | null>>(Array(theoryQuiz.length).fill(null));
   const result = useMemo(() => scoreTheory(answers), [answers]);
   const complete = answers.every((entry) => entry != null);
   const theory = theoryDescriptions[result.winner];
@@ -664,7 +737,7 @@ function TheoryQuizSection() {
 }
 
 function TranscriptsSection() {
-  const sections = [
+  const sections: TranscriptSection[] = [
     { key: "psychology", title: "Psychologie", subtitle: "Subjektive Zeitwahrnehmung, Emotionen, Angst" },
     { key: "pedagogy", title: "Pädagogik", subtitle: "Entwicklung, Lebensphasen, gesellschaftlicher Druck" },
     { key: "philosophy", title: "Philosophie", subtitle: "Vergänglichkeit, Endlichkeit, Sinnfragen" },
@@ -715,7 +788,7 @@ function TranscriptsSection() {
                   </div>
 
                   <div className="space-y-4">
-                    {transcriptQuestionTemplate[section.key].map((question, index) => (
+                    {transcriptQuestionTemplate[section.key].map((question: string, index: number) => (
                       <div key={`${person.id}-${section.key}-${index}`} className="rounded-2xl border bg-white p-4 space-y-3">
                         <p className="font-medium text-slate-900">{index + 1}. {question}</p>
                         <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-5 text-sm text-slate-400 min-h-[72px] flex items-center">
