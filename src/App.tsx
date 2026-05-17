@@ -30,17 +30,14 @@ type InterviewAnswer = {
   name: string;
   text: string;
 };
-
 type InterviewQuestion = {
   q: string;
   answers: InterviewAnswer[];
 };
-
 type SimilarityOption = {
   text: string;
   weights: number[];
 };
-
 type SimilarityQuestion = {
   question: string;
   options: SimilarityOption[];
@@ -72,6 +69,7 @@ type DiagramItem = {
   reflection: string;
 };
 
+//VISUALISIERUNG 1
 const participants: Participant[] = [
   {
     id: 1,
@@ -82,15 +80,7 @@ const participants: Participant[] = [
       "Zeit wird sehr direkt erlebt: Beim Spielen vergeht sie schnell, Langeweile ist doof. Zeit wird vor allem über unmittelbare Gefühle wahrgenommen.",
     keywords: ["Spielen", "Langeweile", "Kindheit"],
     color: "from-pink-100 to-amber-50",
-    psychology:
-      "Beim Spielen vergeht Zeit schnell. Momentan fühlt sich Zeit eher langsam an. Langeweile ist doof; wenn sie aufkommt, isst Aurora Süssigkeiten.",
-    pedagogy:
-      "Langeweile braucht es ihrer Meinung nach nicht & ist eher negativ.",
-    philosophy:
-      "Für sie ist eine falsche Entscheidung schlimmer als gar keine Entscheidung.",
     excerpt: "Beim Spielen vergeht die Zeit schnell. Manchmal vergeht sie allgemein schnell.",
-    image: null,
-    transcriptImage: null,
   },
   {
     id: 2,
@@ -101,15 +91,8 @@ const participants: Participant[] = [
       "Spass macht Zeit schnell, Schule langsam. Social Media, Lehrstellendruck & die Angst, etwas zu verpassen, prägen sein Zeiterleben.",
     keywords: ["Schule", "Spass", "Social Media", "FOMO"],
     color: "from-sky-100 to-blue-50",
-    psychology:
-      "Spass bedeutet für Cyrill: Zeit vergeht schnell. Langeweile in der Schule bedeutet: Zeit vergeht langsam. Seine Lebenszeit wird ihm kaum bewusst, aber etwas zu verpassen findet er schlimmer als älter zu werden.",
-    pedagogy:
-      "Druck spürtet er besonders im Blick auf die Lehrstelle. Den grössten Timedruck sieht er bei Jugendlichen. Die Idee des richtigen Zeitpunkts kommt für ihn stark von Social Media.",
-    philosophy:
-      "Zeit ist für ihn eher Ressource als Feind. Vergänglichkeit bedeutet ihm nicht sehr viel. Keine Entscheidung zu treffen findet er schlimmer als eine falsche.",
     excerpt: "Wenn ich Spass habe, vergeht die Zeit schnell. Wenn ich Langeweile habe, zum Beispiel in der Schule, vergeht sie langsam.",
-    image: null,
-    transcriptImage: null,
+    image: "/cyrill.jpg",
   },
   {
     id: 3,
@@ -120,34 +103,20 @@ const participants: Participant[] = [
       "Zeit erscheint gleichzeitig relativ, bedrängend & existenziell. Zwischen Uni, Aufschieben, verpassten Erfahrungen & Vergänglichkeitsdenken wird Zeit fast zum Gegner.",
     keywords: ["Uni", "ADHS", "Aufschieben", "Vergänglichkeit"],
     color: "from-violet-100 to-fuchsia-50",
-    psychology:
-      "Im Zug spürtet Arslan Zeit je nach Tätigkeit unterschiedlich: Arbeit zieht sie in die Länge, Musik lässt sie schneller vergehen. Zeit fühlt sich momentan sehr schnell an. Langeweile ist unangenehm & kann zu Gedankenspiralen führen. Die begrenzte Lebenszeit ist ihm praktisch immer bewusst.",
-    pedagogy:
-      "Deadlines & soziale Vergleiche erzeugen Druck, auch wenn er früher stärker war. Für jüngere Menschen wirken Zeitabschnitte grösser, weil sie einen grösseren Anteil des bisherigen Lebens ausmachen. Den objektiv richtigen Zeitpunkt glaubt er nicht, eher an die ständige Illusion, dass morgen besser wäre.",
-    philosophy:
-      "Zeit ist für ihn eher Feind als Ressource, weil sie vergeht, während man versucht, sie zu managen. Vergänglichkeit bewertet er nicht negativ, sondern sogar als befreiend. Perfektion & den perfekten Zeitpunkt hält er für absurde Ideen.",
     excerpt: "Zeit ist für mich eher etwas, gegen das man ankämpfen muss.",
-    image: "/arslan.jpg",
-    transcriptImage: "/arslan-transcript.jpeg",
+    image: "/arslan.jpeg",
   },
   {
     id: 4,
     name: "Alexandra",
-    age: 40,
+    age: 45,
     ageLabel: "Erwachsenenalter",
     summary:
       "Zeit ist verdichtet, vollgepackt & eng mit Potenzial verbunden. Zwischen Struktur, Optimierungsdruck & einer fast poetischen Sicht auf Vergänglichkeit entsteht starke Ambivalenz.",
     keywords: ["Potenzial", "Struktur", "Deadlines", "Vergänglichkeit"],
     color: "from-emerald-100 to-teal-50",
-    psychology:
-      "Für Alexandra vergeht Zeit fast immer zu schnell, weil sie sich zu viel einplant. Langeweile fühlt sich wie innerer Druck an. Die begrenzte Lebenszeit wird ihr durch das Älterwerden bewusster, vor allem als Verlust von Möglichkeiten & Potenzial.",
-    pedagogy:
-      "Sie arbeitet stark mit Struktur: Post-its, Journals, To-do-Listen. Gesellschaftlicher Druck prägt für sie stark, wann etwas im Leben angeblich rechtzeitig ist. Gleichzeitig sieht sie in Langeweile auch einen wichtigen Raum für Entspannung & mentale Gesundheit.",
-    philosophy:
-      "Zeit ist für sie kein Feind, sondern Potenzial, wie eine leere Leinwand. Vergänglichkeit findet sie schön, weil Dinge in anderer Form weitergehen können. Begrenzte Zeit verleiht Handlungen Bedeutung.",
     excerpt: "Ich denke nicht an Zeit als Feind. Ich denke, sie ist Potenzial. Sie ist wie eine leere Leinwand (original: blank canvas), die beschrieben werden kann.",
-    image: "/alexandra.jpg",
-    transcriptImage: "/alexandra-transcript.jpeg",
+    image: "/alexandra.jpeg",
   },
   {
     id: 5,
@@ -158,15 +127,8 @@ const participants: Participant[] = [
       "Zeit wirkt heute schneller & knapper als früher. Ihre Haltung ist pragmatisch: viel äusserer Druck, klare Pflichten, aber auch nüchterne Akzeptanz von Vergänglichkeit.",
     keywords: ["Pflichten", "äusserer Druck", "Akzeptanz", "Gebrechlichkeit"],
     color: "from-orange-100 to-rose-50",
-    psychology:
-      "Zeit vergeht für Lyudmila eher schneller. Seit dem Smartphone kennt sie fast keine Langeweile mehr. Die Endlichkeit des Lebens wird ihr vor allem bei Todesfällen oder schlimmen Nachrichten bewusst. Mehr Angst macht ihr das Älterwerden & die mögliche Abhängigkeit als das Verpassen von Chancen.",
-    pedagogy:
-      "Druck erlebt sie klar von aussen: durch Bürokratie, Fristen & die Beschleunigung des Alltags. Für junge Menschen scheint Zeit offener; mit mehr Verantwortung steigt der Druck, Dinge rechtzeitig zu schaffen.",
-    philosophy:
-      "Vergänglichkeit ist für sie ein natürlicher Zustand: Etwas vergeht, etwas Neues kommt. Einen perfekten Zeitpunkt gibt es nicht wirklich; er wird meist von aussen diktiert. Unendliche Zeit würde ihr eher Angst machen.",
     excerpt: "Etwas vergeht, etwas Neues kommt.",
-    image: "/lyudmila.jpg",
-    transcriptImage: "/lyudmila-transcript.jpeg",
+    image: "/lyudmila.jpeg",
   },
   {
     id: 6,
@@ -177,18 +139,10 @@ const participants: Participant[] = [
       "Zeit vergeht sehr schnell, aber ohne eigentliche Angst. Vertrauen, Gegenwart & Glaube tragen ihre Zeitwahrnehmung stärker als Druck oder Vergänglichkeitsfurcht.",
     keywords: ["Glaube", "Gelassenheit", "Gegenwart", "kein Todesangst"],
     color: "from-stone-100 to-slate-50",
-    psychology:
-      "In den letzten Jahren vergeht Zeit für Emma sehr schnell. Langeweile kennt sie kaum, weil immer etwas zu tun ist. Vor dem Tod hat sie keine Angst; sie ist mit sich selbst eher zufrieden.",
-    pedagogy:
-      "Sie sieht grossen Druck besonders auf junge Leute, verstärkt durch Medien. Früher habe es mehr Freiheiten & weniger Zeitstress gegeben. Langeweile empfindet sie zwar als schlecht, aber Ruhe findet sie wichtig.",
-    philosophy:
-      "Vergänglichkeit gehört zum Leben & macht ihr keine Angst. Gott bleibt für immer. Für alles gibt es einen richtigen Zeitpunkt, aber Menschen können ihn nicht wissen.",
-    excerpt: "Weil ich Gott vertraue. Alles wird richtig kommen.",
-    image: null,
-    transcriptImage: null,
+    excerpt: "Ich vertraue Gott. Alles wird richtig kommen.",
   },
 ];
-
+ //VISUALISIERUNG 2
 const interviewQuestions: InterviewQuestion[] = [
   {
     q: "Wann spürst du besonders stark, dass Zeit schnell oder langsam vergeht?",
@@ -196,7 +150,7 @@ const interviewQuestions: InterviewQuestion[] = [
       { age: 8, name: "Aurora", text: "Beim Spielen vergeht die Zeit schnell. Manchmal vergeht sie allgemein schnell." },
       { age: 14, name: "Cyrill", text: "Wenn ich Spass habe, vergeht die Zeit schnell. Wenn ich Langeweile habe, zum Beispiel in der Schule, vergeht sie langsam." },
       { age: 19, name: "Arslan", text: "Spontan merke ich das gerade bei der Uni. Wenn ich zur Uni fahren muss, ist das ein interessanter Fall, weil es grundsätzlich zwei Stunden im Zug sind. Je nachdem, wie ich diese zwei Stunden verbringe, fühlen sie sich sehr unterschiedlich an. Wenn ich versuche, etwas zu arbeiten, dann fühlt sich die Zeit ziemlich lang an, was eigentlich vorteilhaft ist. Meistens heisst das aber auch, dass ich nicht sehr viel Spass an der Arbeit habe. Wenn ich dagegen Musik höre, dann vergeht die Zeit relativ schnell, dann fühlt es sich eher wie eine Stunde an. Ein anderes Beispiel sind die Vorlesungen. Die Vorlesungen an der Uni sind zwei 45-Minuten-Lektionen. Oft schaue ich sie mir aber einfach zu Hause in doppelter Geschwindigkeit an. Trotzdem fühlt sich diese eine 45-Minuten-Lektion meistens so an wie die gesamte 90-Minuten-Lektion in der Uni..." },
-      { age: 40, name: "Alexandra", text: "Für mich vergeht Zeit immer zu schnell. Ich plane mir zu viel ein, deshalb bin ich immer am Rennen & Hetzen auf eine Deadline hin. Ich glaube, ich bin nicht besonders gut mit Zeit & Raum, deshalb langweile ich mich eigentlich nie wirklich." },
+      { age: 45, name: "Alexandra", text: "Für mich vergeht Zeit immer zu schnell. Ich plane mir zu viel ein, deshalb bin ich immer am Rennen & Hetzen auf eine Deadline hin. Ich glaube, ich bin nicht besonders gut mit Zeit & Raum, deshalb langweile ich mich eigentlich nie wirklich." },
       { age: 49, name: "Lyudmila", text: "Ich kann nicht genau benennen, wann, aber manchmal geht es schneller. Ich bin selbst schockiert, dass es schon Montag ist... Wahrscheinlich vergeht die Zeit schneller, wenn man frei hat." },
       { age: 74, name: "Emma", text: "In den letzten Jahren geht die Zeit sehr schnell vorbei." },
     ],
@@ -207,7 +161,7 @@ const interviewQuestions: InterviewQuestion[] = [
       { age: 8, name: "Aurora", text: "Eher langsam." },
       { age: 14, name: "Cyrill", text: "Es ist unterschiedlich. Manchmal fühlt es sich mittel an & manchmal verschieden." },
       { age: 19, name: "Arslan", text: "Im Moment fühlt sie sich schon sehr schnell an. Ich bin erst seit etwa einem halben Jahr nicht mehr an der Kanti & was überraschend ist, weil sich die Kanti wie eine Ewigkeit entfernt anfühlt. Dabei ist es eigentlich noch gar nicht so lange her. Es fühlt sich so an, als wäre ich seit Ewigkeiten an der Uni, aber eigentlich habe ich erst ein Semester hinter mir. Bestimmte Abschnitte, wie meine frühe Kindheit in Deutschland, kann ich mir fast gar nicht mehr richtig relativ vorstellen. Die Kanti fühlte sich aber auch wie ein sehr langer Zeitabschnitt an, länger als die Primarschule, interessanterweise." },
-      { age: 40, name: "Alexandra", text: "Zeit fühlt sich in meinem Leben eher schnell an. Ich habe immer das Gefühl, dass es nicht genug Zeit gibt, weil ich so viel in sie hineinpacke." },
+      { age: 45, name: "Alexandra", text: "Zeit fühlt sich in meinem Leben eher schnell an. Ich habe immer das Gefühl, dass es nicht genug Zeit gibt, weil ich so viel in sie hineinpacke." },
       { age: 49, name: "Lyudmila", text: "Eher schneller." },
       { age: 74, name: "Emma", text: "Sehr schnell." },
     ],
@@ -218,7 +172,7 @@ const interviewQuestions: InterviewQuestion[] = [
       { age: 8, name: "Aurora", text: "Langeweile ist doof." },
       { age: 14, name: "Cyrill", text: "Es fühlt sich nicht gut aber auch nicht ganz schlecht an. Es ist eher neutral bis schlecht." },
       { age: 19, name: "Arslan", text: "Grundsätzlich würde ich sagen, es ist unangenehm. Vorallem durch mein ADHS. Ich fange dann schnell an, in Gedanken zu spiralisieren, wenn ich mich nicht mit irgendetwas ablenke. Und meistens kann ich selber nicht kontrollieren, was das für Gedanken sind." },
-      { age: 40, name: "Alexandra", text: "Es fühlt sich wie ein innerer Druck an. Ich will dann einfach, dass es aufhört. Es ist nicht entspannend & nicht angenehm. Ich erinnere es als ein angespanntes Gefühl." },
+      { age: 45, name: "Alexandra", text: "Es fühlt sich wie ein innerer Druck an. Ich will dann einfach, dass es aufhört. Es ist nicht entspannend & nicht angenehm. Ich erinnere es als ein angespanntes Gefühl." },
       { age: 49, name: "Lyudmila", text: "Mit dem Internet verspüre ich gar keine Langeweile mehr. Früher traff sie ein, wenn ich kein gutes Buch zur Hand hatte. Aber wenn ich ein gutes Buch zur Hand hatte, hatte ich nie Langeweile in meinem Leben. Ich erinnere mich aber schon an Situationen, zum Beispiel bei meiner Oma im Dorf manchmal, weil ich keine Unterhaltung hatte. Das war eher unangenehm." },
       { age: 74, name: "Emma", text: "Ich habe keine Langeweile, weil ich immer etwas zu tun habe. Mein Hobby ist zum Beispiel Lesen." },
     ],
@@ -228,8 +182,8 @@ const interviewQuestions: InterviewQuestion[] = [
     answers: [
       { age: 8, name: "Aurora", text: "Langeweile braucht es nicht & sie ist doof." },
       { age: 14, name: "Cyrill", text: "Langeweile ist unnötig & negativ." },
-      { age: 19, name: "Arslan", text: "Wenn du dich 24/7 von irgendetwas beschallen lässt, also mit Musik & Videos & so weiter, dann ist das sicher auch nicht gut. Wir leben in einer sehr rasanten & hyper-stimulierten Gesellschaft. Aber ehrlich gesagt würde ich nicht sagen, dass man unbedingt Langeweile braucht, sondern eher, dass man darüber nachdenken sollte, auf welche Art man Langeweile fernhält. Denn streng genommen verdrängst du Langeweile auch dann, wenn du ein Buch liest... Genauso wie wenn du Musik hörst, während du ein YouTube-Video schaust & im Hintergrund noch eine Netflix-Serie läuft." },
-      { age: 40, name: "Alexandra", text: "Ich denke, Langeweile ist oft auch wichtig, besonders für die mentale Gesundheit & zur Entspannung. Auch wenn ich Langeweile als Druck beschreibe, hat sie zwei Seiten & muss nicht nur negativ sein." },
+      { age: 19, name: "Arslan", text: "Wenn du dich 24/7 von irgendetwas beschallen lässt, also mit Musik, Videos & so weiter, dann ist das sicher auch nicht gut. Wir leben in einer sehr rasanten & hyper-stimulierten Gesellschaft. Aber ehrlich gesagt würde ich nicht sagen, dass man unbedingt Langeweile braucht, sondern eher, dass man darüber nachdenken sollte, auf welche Art man Langeweile fernhält. Denn streng genommen verdrängst du Langeweile auch dann, wenn du ein Buch liest... Genauso wie wenn du Musik hörst, während du ein YouTube-Video schaust & im Hintergrund noch eine Netflix-Serie läuft." },
+      { age: 45, name: "Alexandra", text: "Ich denke, Langeweile ist oft auch wichtig, besonders für die mentale Gesundheit & zur Entspannung. Auch wenn ich Langeweile als Druck beschreibe, hat sie zwei Seiten & muss nicht nur negativ sein." },
       { age: 49, name: "Lyudmila", text: "Wenn einem langweilig ist & man dann etwas sucht, das Kreativität fordert, dann ist einem nicht mehr langweilig. Vielleicht kommt Kreativität sogar aus der Langeweile. Man war gelangweilt, aber hat sich dann beschäftigt & gesucht. Von dem her denke ich schon." },
       { age: 74, name: "Emma", text: "Langeweile ist etwas Schlechtes. Gut ist nur, wenn man zur Ruhe kommt & nicht immer aktiv sein muss. Langeweile sollte es aber nicht geben." },
     ],
@@ -240,13 +194,14 @@ const interviewQuestions: InterviewQuestion[] = [
       { age: 8, name: "Aurora", text: "Eine falsche Entscheidung ist schlimmer." },
       { age: 14, name: "Cyrill", text: "Gar keine Entscheidung zu treffen ist schlimmer." },
       { age: 19, name: "Arslan", text: "Das ist situationsabhängig. Manchmal ist eine falsche Entscheidung deutlich schlimmer als gar keine Entscheidung & manchmal ist gar keine Entscheidung deutlich schlimmer als eine falsche Entscheidung." },
-      { age: 40, name: "Alexandra", text: "Ich denke, beides kann gleich schlimm sein. Es gibt falsche Entscheidungen, besonders wenn sie negative Folgen für andere oder für mich selbst haben. Aber gar nichts zu tun kann genauso schlimm sein." },
+      { age: 45, name: "Alexandra", text: "Ich denke, beides kann gleich schlimm sein. Es gibt falsche Entscheidungen, besonders wenn sie negative Folgen für andere oder für mich selbst haben. Aber gar nichts zu tun kann genauso schlimm sein." },
       { age: 49, name: "Lyudmila", text: "Beides ist schlimm. Aber eine Entscheidung nicht zu treffen, bedeutet auch die falsche Entscheidung zu treffen." },
-      { age: 74, name: "Emma", text: "Gar keine Entscheidung zu treffen ist schlimmer." },
+      { age: 74, name: "Emma", text: "Gar keine Entscheidung zu treffen." },
     ],
   },
 ];
 
+//INTERVIEWSFRAGEN
 const transcriptQuestionTemplate: Record<TranscriptSectionKey, string[]> = {
   psychology: [
     "Wann spürst du besonders stark, dass Zeit schnell oder langsam vergeht?",
@@ -290,6 +245,7 @@ const transcriptQuestionTemplate: Record<TranscriptSectionKey, string[]> = {
   ],
 };
 
+//VISUALISIERUNG 3 -> QUIZZ
 const similarityQuiz: SimilarityQuestion[] = [
   {
     question: "Wie fühlt sich für dich ein freier Nachmittag am ehesten an?",
@@ -348,26 +304,27 @@ const similarityQuiz: SimilarityQuestion[] = [
   },
 ];
 
+//VISUALISIERUNG 4 -> DIAGRAMME
 const diagramItems: DiagramItem[] = [
   {
     title: "Wahrnehmung der Geschwindigkeit",
-    image: "/diagramm-geschwindigkeit.png",
-    reflection: "*insert text*",
+    image: "/geschwindigkeit.png",
+    reflection: "Das Diagramm zeigt, dass Zeit von den jüngeren Befragten eher langsam & von den älteren insgesamt deutlich schneller wahrgenommen wird. Dies lässt sich mit der Zeitperspektive nach Zimbardo & Schilling erklären: Mit zunehmendem Alter sammeln Menschen mehr Erfahrungen, Gewohnheiten & Deutungsroutinen, wodurch Zeit weniger neu & dadurch oft schneller erlebt wird. Kinder begegnen ihrer Umwelt dagegen noch stärker als etwas Unbekanntem, weshalb Erlebnisse intensiver verarbeitet werden & Zeit subjektiv länger wirken kann. Auch der Gedanke, dass ein Jahr mit steigendem Alter einen immer kleineren Anteil des bisherigen Lebens ausmacht, unterstützt diese Wahrnehmung. ",
   },
   {
     title: "Abfinden mit nicht Erlebtem",
-    image: "/diagramm-abfinden.png",
-    reflection: "*insert text*",
+    image: "/nichterlebtes.png",
+    reflection: "Mit zunehmendem Alter fällt es den Befragten offenbar leichter, sich damit abzufinden, nicht alles im Leben erleben zu können. Dies lässt sich mit der sozioemotionalen Selektivitätstheorie erklären: Wenn Menschen ihre verbleibende Zeit als begrenzter wahrnehmen, richten sie ihre Aufmerksamkeit stärker auf emotional bedeutsame Ziele statt auf möglichst viele neue Erfahrungen. Jüngere Personen verfolgen dagegen eher wissens- & entwicklungsbezogene Ziele & empfinden verpasste Möglichkeiten deshalb stärker als Verlust. Die steigenden Werte im Diagramm deuten somit darauf hin, dass Lebenserfahrung & klarere Prioritäten zu mehr Gelassenheit führen können. ",
   },
   {
     title: "Akzeptanz von Vergänglichkeit",
-    image: "/diagramm-vergaenglichkeit.png",
-    reflection: "*insert text*",
+    image: "/vergänglichkeit.png",
+    reflection: "Die Werte zeigen insgesamt eine relativ hohe Akzeptanz von Vergänglichkeit über alle Altersgruppen hinweg. Dies kann mit der Terror-Management-Theorie erklärt werden: Menschen bewältigen das Bewusstsein ihrer Endlichkeit, indem sie sich an Weltanschauungen, Werte oder persönliche Sinnvorstellungen halten. Entscheidend ist weniger das Alter als die Frage, ob eine Person eine für sie stimmige Deutung des Lebens & der Begrenztheit entwickelt hat. Die hohen Werte im Diagramm sprechen deshalb dafür, dass Sinngebung & persönliche Überzeugungen die Akzeptanz von Vergänglichkeit stark fördern können. ",
   },
   {
     title: "Bewertung von Langeweile",
-    image: "/diagramm-langeweile.png",
-    reflection: "*insert text*",
+    image: "/langeweile.png",
+    reflection: "Das Diagramm zeigt, dass Langeweile bei den jüngeren Befragten eher negativ bewertet wird, während sie im jungen & mittleren Erwachsenenalter neutraler oder sogar weniger belastend erscheint. Eine Erklärung dafür liegt darin, dass Kinder & Jugendliche stärker auf neue Reize, Beschäftigung & Entwicklung ausgerichtet sind & ungenutzte Zeit deshalb schneller als unangenehm erleben. Mit zunehmender Lebenserfahrung stehen mehr Erinnerungen, Gedanken & Möglichkeiten zur inneren Beschäftigung zur Verfügung, wodurch ruhige Phasen weniger als „leere“ Langeweile empfunden werden. Dies passt auch zu Augustinus’ Verständnis von Zeit als etwas, das im Inneren des Menschen erlebt wird: Derselbe Zeitraum kann je nach Wahrnehmung völlig unterschiedlich wirken. Dass die Bewertung im hohen Alter wieder etwas sinkt, zeigt zugleich, dass die individuelle Lebenssituation & somit auch Glauben weiterhin eine wichtige Rolle spielt. ",
   },
 ];
 
@@ -434,41 +391,13 @@ function PersonDetailDialog({ selected, setSelected }: PersonDetailDialogProps) 
                   <div className="rounded-2xl bg-slate-50 p-4 border">
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-2">
                       <Quote className="h-4 w-4" />
-                      <span>Prägnantes Zitat</span>
+                      <span>Zitat</span>
                     </div>
                     <p className="italic text-slate-800">„{selected.excerpt}“</p>
                   </div>
                 </CardContent>
               </Card>
 
-              <div className="grid gap-5 md:grid-cols-3">
-                <Card className="rounded-2xl">
-                  <CardHeader>
-                    <CardTitle className="text-base">Psychologie</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-700 leading-relaxed text-sm">{selected.psychology}</p>
-                  </CardContent>
-                </Card>
-
-                <Card className="rounded-2xl">
-                  <CardHeader>
-                    <CardTitle className="text-base">Pädagogik</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-700 leading-relaxed text-sm">{selected.pedagogy}</p>
-                  </CardContent>
-                </Card>
-
-                <Card className="rounded-2xl">
-                  <CardHeader>
-                    <CardTitle className="text-base">Philosophie</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-700 leading-relaxed text-sm">{selected.philosophy}</p>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
           </>
         )}
@@ -642,7 +571,7 @@ function TheoryQuizSection() {
         icon={Hourglass}
         eyebrow="Visualisierung 5"
         title="Diagramme zur Auswertung"
-        text={`Hier sind vier zentrale Diagramme aus unserer Auswertung zu sehen. Unter jedem Diagramm kann man durch einen Klick auf „Überlege“ eine kurze Deutungsfläche öffnen und dort Gedanken, Beobachtungen oder eine gemeinsame Interpretation einfügen.`}
+        text={`Hier sind vier zentrale Diagramme aus unserer Auswertung zu sehen. Nach einer Überlegung woher man sich die entsprechenden Resultate schliessen lassen könnte, kann man mit einem Klick auf "Überlege..." unterstützende Theorien nachschlagen.`}
       />
 
       <div className="grid gap-8">
@@ -663,7 +592,7 @@ function TheoryQuizSection() {
               <Accordion type="single" collapsible className="space-y-2">
                 <AccordionItem value={`diagram-${index}`} className="rounded-2xl border bg-white px-5 shadow-sm">
                   <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
-                    Überlege
+                    Überlege...
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="rounded-xl bg-slate-50 p-4 border text-slate-700 whitespace-pre-line">
@@ -680,6 +609,8 @@ function TheoryQuizSection() {
   );
 }
 
+//TRANSSKRIPTE
+
 const transcriptAnswers: Record<string, Record<TranscriptSectionKey, string[]>> = {
   Aurora: {
     psychology: [
@@ -688,7 +619,7 @@ const transcriptAnswers: Record<string, Record<TranscriptSectionKey, string[]>> 
       ``,
       ``,
       `Langeweile ist doof.`,
-      `Ich esse dann Süssigkeiten.`,
+      `Ich spiele oder esse Süssigkeiten.`,
       ``,
       ``,
       ``,
@@ -727,11 +658,11 @@ const transcriptAnswers: Record<string, Record<TranscriptSectionKey, string[]>> 
   Cyrill: {
     psychology: [
       `Wenn ich Spass habe, vergeht die Zeit schnell. Wenn ich Langeweile habe, zum Beispiel in der Schule, vergeht sie langsam.`,
-      `Es ist unterschiedlich. Manchmal fühlt es sich mittel an & manchmal verschieden.`,
+      `Im Moment so Mittel. Es ist halt verschieden.`,
       `Nein, es hat sich nicht verändert.`,
       `Das ist einfach ein Gefühl.`,
       `Es fühlt sich nicht gut aber auch nicht ganz schlecht an. Es ist eher neutral bis schlecht.`,
-      `Ich gehe dann ans Handy.`,
+      `Ich gehe an mein Handy. Versuche mich abzulenken mit etwas.  `,
       `Nein.`,
       ``,
       `Ich habe mehr Angst davor, etwas zu verpassen.`,
@@ -741,29 +672,29 @@ const transcriptAnswers: Record<string, Record<TranscriptSectionKey, string[]>> 
     pedagogy: [
       `Nein.`,
       ``,
-      `Ja. Ältere sind besser auf den Tod vorbereitet & merken mehr, dass die Zeit vorbeigeht.`,
+      `Ja, ich denke ältere Menschen nehmen die Zeit als eher schnell wahr, sie müssen sich auf ihren Tod "vorbereiten".`,
       `Nein.`,
       `Weil es etwas Normales ist.`,
-      `Langeweile ist unnötig & negativ.`,
-      `Diese Idee kommt bei mir von Social Media.`,
-      `Ja. Zum Beispiel, wenn es darum geht, eine Lehrstelle zu finden.`,
-      `Als Jugendlicher hat man den grössten Druck.`,
+      `Nein, ich denke Langeweile ist unnötig und negativ.`,
+      `Social Media.`,
+      `Ja, dieses Gefühl kenne ich. Zu Beispiel, muss ich genau jetzt eine Lehrstelle finden. Dieser Druck ist gross.`,
+      `Ich denke, dass Jugendliche den grössten Druck haben, alles richtig zu timen.  `,
     ],
     philosophy: [
-      `Sie ist für mich eher eine Ressource.`,
+      `Nichts, aber eher eine Ressource.`,
       `Sie bedeutet nicht viel. Sie ist einfach da.`,
       `Ich finde sie langweilig.`,
-      `Sie bedeutet für mich nichts.`,
-      `Ich finde sie mittel & auch wichtig, weil man nicht für immer leben sollte. Schlecht ist sie dann, wenn etwas früher passiert als gedacht.`,
+      `Vergänglichkeit bedeutet noch nichts für mich.`,
+      `So Mittel. Es ist wichtig, da man nicht für immer leben sollte, aber auch schlecht, weil sie schneller kommt als man denkt.`,
       `Nein.`,
-      `Weil man nichts dagegen machen kann.`,
+      `Man kann nichts machen. Es kommt so wie es kommt. `,
       `Nein.`,
       `Nein.`,
       `Dann hätte alles die gleiche Bedeutung.`,
       `Ja.`,
       `Es ist eher eine Idee, die uns stresst.`,
       `Gar keine Entscheidung zu treffen ist schlimmer.`,
-      `Gefühle.`,
+      `Einfach das Gefühl, welches man hat.`,
     ],
   },
 
@@ -787,7 +718,7 @@ const transcriptAnswers: Record<string, Record<TranscriptSectionKey, string[]>> 
       `Ja. Wenn du mehr Zeit hinter dir hast, dann fühlt sich ein Zeitabschnitt kleiner an. Für einen Zehnjährigen sind fünf Jahre die Hälfte seiner Lebenszeit. Für einen Fünfzigjährigen ist es nur ein Zehntel. Ausserdem haben die Zeitabschnitte in den sensiblen Phasen der Kindheit mehr Eindruck auf uns gemacht & wirken deshalb länger. Deshalb kommen uns fünf Primarschuljahre vielleicht heftiger & länger vor als fünf Jahre in einem 9-to-5-Job.`,
       `Ich würde es nicht als eine gesellschaftliche Angst vor dem Altern bezeichnen. Die meisten Leute haben interessanterweise eher Angst vor dem Tod als vor dem Altern. Es ist ja eigentlich etwas Erwünschtes, dass man lang lebt. Man wünscht sich ein langes Leben & möglichst alt zu werden, bevor man stirbt. Deshalb würde ich eher sagen, es ist das Gegenteil. Die Leute haben nicht direkt Angst davor, aber niemand mag es unbedingt, alt zu werden. Trotzdem ist es etwas, das man erwartet, aus Trotz gegenüber dem Tod sozusagen.`,
       `Weil die Angst vor dem Tod stärker zu sein scheint als die Abneigung gegenüber dem Altern. Man empfindet Altern vielleicht als unangenehm, aber es wird durch den Wunsch, möglichst lange zu leben, gewissermassen abgewogen.`,
-      `Wenn du dich 24/7 von irgendetwas beschallen lässt, also mit Musik & Videos & so weiter, dann ist das sicher auch nicht gut. Wir leben in einer sehr rasanten & hyper-stimulierten Gesellschaft. Aber ehrlich gesagt würde ich nicht sagen, dass man unbedingt Langeweile braucht, sondern eher, dass man darüber nachdenken sollte, auf welche Art man Langeweile fernhält. Denn streng genommen verdrängst du Langeweile auch dann, wenn du ein Buch liest... Genauso wie wenn du Musik hörst, während du ein YouTube-Video schaust & im Hintergrund noch eine Netflix-Serie läuft.`,
+      `Wenn du dich 24/7 von irgendetwas beschallen lässt, also mit Musik, Videos & so weiter, dann ist das sicher auch nicht gut. Wir leben in einer sehr rasanten & hyper-stimulierten Gesellschaft. Aber ehrlich gesagt würde ich nicht sagen, dass man unbedingt Langeweile braucht, sondern eher, dass man darüber nachdenken sollte, auf welche Art man Langeweile fernhält. Denn streng genommen verdrängst du Langeweile auch dann, wenn du ein Buch liest... Genauso wie wenn du Musik hörst, während du ein YouTube-Video schaust & im Hintergrund noch eine Netflix-Serie läuft.`,
       `An den richtigen Zeitpunkt glaube ich eigentlich nicht. Ich glaube nur oft, dass der Zeitpunkt im Moment ungünstig ist & morgen vielleicht besser wäre. Ich denke, diese Idee kommt bei mir aus einer intrinsischen Motivation, alles später erledigen zu wollen & irgendwelche Ausreden zu suchen. Denn objektiv gesehen werden die Lagen grundsätzlich nicht besser & darüber bin ich mir auch bewusst. Trotzdem hat man im Moment immer das Gefühl, dass die Zukunft besser geeignet ist als die Gegenwart, weil man die Präsenz anders wahrnimmt als Vergangenheit & Zukunft & in Bezug auf die Zukunft oft zu hoffnungsvoll ist.`,
       `Nicht wirklich. Bei mir sind die Resultate, je nachdem wie ich meine Zeit plane, eigentlich immer gleich. Meistens sind sie sogar besser, je weniger ich plane & je weniger ich für etwas lerne. Ich kann mir aber vorstellen, dass das bei anderen Personen anders ist, wenn Zeitplanung tatsächlich Einfluss auf ihre Leistungen hat. Solange am Ende die Hausaufgabe korrekt & rechtzeitig abgegeben wurde, kommt es eher darauf an, wie gut du ohne Zeitmanagement leben kannst. Wenn man es dir nicht anmerkt, dass du keinen Plan hast, würde es auch niemandem auffallen. Im zwischenmenschlichen Bereich gibt es aber schon Grenzen. Wenn es eine feste Timeline gibt, würde ich niemanden eine Woche auf „read“ lassen, weil das einfach unhöflich wäre. Ein Tag bis ein paar Stunden ist normal, aber sieben Tage hängen dann von mehreren Faktoren ab. Das hat für mich weniger mit Zeit an sich zu tun als damit, dass man ein Versprechen direkt oder indirekt gegeben & dann nicht erfüllt hat.`,
       `Dafür habe ich nicht genügend Eindrücke, um das zu beantworten. Als Hypothese würde ich sagen, dass es wahrscheinlich ähnlich verteilt ist.`,
@@ -899,43 +830,43 @@ const transcriptAnswers: Record<string, Record<TranscriptSectionKey, string[]>> 
   Emma: {
     psychology: [
       `In den letzten Jahren geht die Zeit sehr schnell vorbei.`,
-      `Sehr schnell.`,
-      `Es hat sich ein bisschen verändert. Es war aber eigentlich immer eher schnell. Langeweile gab es nie.`,
+      `Auch sehr schnell.`,
+      `Das Gefühl hat sich ein bisschen verändert. Aber Zeit hat sich schon immer eher schnell angefühlt. Als Kind gab es keine Langeweile, wir hatten immer etwas zu tun.`,
       `Weil immer etwas los ist.`,
       `Ich habe keine Langeweile, weil ich immer etwas zu tun habe. Mein Hobby ist zum Beispiel Lesen.`,
       ``,
-      `Nein. Ich habe keine Angst vor dem Tod. Es ist okay.`,
+      `Nein, ich habe keine Angst vor dem Tod. Es ist okay. Auch das gehört zum Leben dazu.`,
       ``,
       `Eher davor, etwas zu verpassen. Aber eigentlich auch nicht. Ich bin zufrieden mit mir selbst.`,
-      `Ich frage mich eher, wann der Zeitpunkt zum Sterben ist & was ich noch machen muss, weil ich noch lebe. Ich frage mich, wofür ich noch da bin & was Gott noch mit mir will.`,
-      `Nein. Alles ist von Gott vorbestimmt.`,
+      `Wann ist der Zeitpunkt zum Sterben? Was muss ich noch machen, weil ich noch lebe. Für was? Was will Gott noch mit mir? Ich stelle mir manchmal solche Fragen, wenn ich über den Zeitpunkt nachdenke.`,
+      `Nein, alles ist von Gott vorbestimmt.`,
     ],
     pedagogy: [
-      `Nein.`,
+      `Nein, diesen Druk habe ich nicht.`,
       ``,
-      `Nein. Alle denken, dass die Zeit schnell geht.`,
+      `Nein, ich denke, dass alle die Zeit als schnell wahrnehmen.`,
       `Ich verstehe, warum Menschen Angst vor dem Altern haben & auch Angst vor dem Alleinsein. Ich selber habe diese Angst aber nicht.`,
       ``,
       `Langeweile ist etwas Schlechtes. Gut ist nur, wenn man zur Ruhe kommt & nicht immer aktiv sein muss. Langeweile sollte es aber nicht geben.`,
       ``,
-      `Nicht immer nur gut, aber vom Umfeld bekomme ich gute Bewertungen.`,
-      `Auf junge Leute gibt es grossen Druck. Das ist total falsch & wird vor allem durch die Medien verstärkt. Früher hatte man viele Freiheiten & das war sehr gut. Es gab keinen Druck & keinen Stress. Ich würde nicht mit den Jungen heute tauschen.`,
+      `Ich erhalte nicht nur gute Bewertungen von anderen Menschen, darüber wie ich Lebe, aber von meinem Umfeld bekomme ich gute Bewertungen und das stärkt mich.`,
+      `Ich denke, dass ein grosser Druck auf Junge Leute da ist. Ich finde das aber total Falsch. (Vor allem durch Medien verstärkt) Früher hatten wir viele Freiheiten, es war sehr gut, kein Druck, kein Stress. Ich würde nicht gerne tauschen mit den jungen Menschen heutzutage.`,
     ],
     philosophy: [
       ``,
-      `Langeweile ist für mich ein schlimmes Gefühl. Dann suche ich Hilfe im Gebet.`,
+      `Langeweile ist ein schlimmes Gefühl. Man sollte sich Hilfe im Gebet suchen.`,
       `Ich kenne eigentlich keine Langeweile, nur von meinen Enkeln. Früher kannte man das nicht.`,
-      `Sie gehört zum Leben & das stimmt so. Man soll im Jetzt leben. Ich habe keine Angst vor Vergänglichkeit.`,
+      `Vergänglichkeit gehört zum Leben dazu und das stimmt so für mich. Man sollte im Jetzt leben, und keine Angst vor der Vergänglichkeit haben.`,
       ``,
       `Nein.`,
-      `Weil ich Gott vertraue. Alles wird richtig kommen.`,
+      `Ich vertraue auf Gott. Alles wird richtig kommen.`,
       `Gott bleibt für immer. Menschen, die an Gott glauben, bleiben auch. Die Erde wird es für immer geben. Es ist normal, dass es eine Entwicklung gibt.`,
-      `Ich frage mich, ob ich das überhaupt möchte.`,
+      `Möchte ich das überhaupt?`,
       ``,
-      `Man weiss nicht, wann es fertig ist. Durch die Wiederauferstehung ist das eine andere Frage.`,
-      `Es gibt für alles den perfekten Zeitpunkt. Aber wann dieser ist, kann man nicht wissen.`,
-      `Gar keine Entscheidung zu treffen ist schlimmer.`,
-      `Menschen können das nicht wissen. Alles ist von Gott vorbestimmt & man kann es nicht beeinflussen.`,
+      `Man weiss nicht, wann es fertig ist, weil man Wiederaufstehen kann.`,
+      `Es gibt für alles den perfekten Zeitpunkt. Aber wann ist dieser? Das kann man nicht wissen.  `,
+      `Gar keine Entscheidung zu treffen.`,
+      `Menschen können nicht wissen, wann ein Moment richtig ist. Alles ist von Gott vorbestimmt. Das kann man nicht beeinflussen.`,
     ],
   },
 };
@@ -953,7 +884,7 @@ function TranscriptsSection() {
         icon={FileText}
         eyebrow="Visualisierung 3"
         title="Interviewtranskripte"
-        text={`Auf dieser Seite sind die Transkripte unserer Interviews zu finden. Man kann somit einzelne Fragen direkt miteinander vergleichen. Jede Perspektive der Befragten wurde durch ein selbst gemaltes Bild veranschaulicht. Hat man Interesse an einer spezifischen Interviewbefragung, kann durch das Klicken auf einen Namen direkt zu der Person gesprungen werden.`}
+        text={`Auf dieser Seite sind die Transkripte unserer Interviews zu finden. Man kann somit einzelne Fragen direkt miteinander vergleichen. Hat man Interesse an einer spezifischen Interviewbefragung, kann durch das Klicken auf einen Namen direkt zu der Person gesprungen werden.`}
       />
 
       <div className="rounded-3xl border bg-white p-5 shadow-sm space-y-4">
@@ -981,19 +912,7 @@ function TranscriptsSection() {
             </CardHeader>
 
             <CardContent className="space-y-6">
-              <div className="overflow-hidden rounded-2xl border bg-slate-50">
-                {person.transcriptImage ? (
-                  <img
-                    src={person.transcriptImage}
-                    alt={`${person.name} gemaltes Transkriptbild`}
-                    className="h-[280px] w-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-[280px] w-full items-center justify-center bg-slate-100 text-sm text-slate-400">
-                    Gemaltes Bild für diese Transkript-Seite hier einfügen
-                  </div>
-                )}
-              </div>
+            
 
               {sections.map((section) => {
                 const answeredEntries = transcriptQuestionTemplate[section.key]
@@ -1124,14 +1043,17 @@ export default function ZeitAngstWebsitePrototype() {
         >
           <div className="space-y-6">
             <Badge className="rounded-full px-4 py-1 text-sm bg-slate-900 hover:bg-slate-900">
-              Angst vor Zeit
+              Zeitwahrnehmung
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-              Wie verändert sich <span className="italic">Zeit</span> über das Leben hinweg?
-            </h1>
+            <div className="max-w-5xl">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
+                Wie verändert sich <br />
+                <span className="italic">Zeitwahrnehmung</span> über die Altersklassen hinweg?
+              </h1>
+            </div>
             <div className="max-w-2xl text-lg text-slate-600 leading-relaxed space-y-2">
-              <p>Unsere Website beschöftigt sich mit der Konstellation von Zeitwahrnehmung, Vergänglichkeit & Angst vor Zeit</p>
-              <p>Zu finden sind Interviews, Reflexionsfragen & geisteswissenschaftliche Theorien</p>
+              <p>Unsere Website beschäftigt sich mit der Konstellation von Zeitwahrnehmung, Vergänglichkeit, Angst vor Zeit & dem Wandel all dieser Konzepte durch das Leben</p>
+              <p>Zu finden sind Interviews, Auswertungen, Theorien & Reflexionsfragen</p>
               <p>Wir wünschen viel Spass beim Eintauchen!</p>
               <p>Aurelia & Yasemin, SPP23</p>
             </div>
