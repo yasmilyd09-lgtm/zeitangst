@@ -46,18 +46,6 @@ type SimilarityQuestion = {
   options: SimilarityOption[];
 };
 
-type TheoryName = "Augustinus" | "Marcus Aurelius" | "Kant" | "Nietzsche";
-
-type TheoryOption = {
-  text: string;
-  theory: TheoryName;
-};
-
-type TheoryQuestion = {
-  question: string;
-  options: TheoryOption[];
-};
-
 type SectionTitleProps = {
   icon: ComponentType<{ className?: string }>;
   eyebrow: string;
@@ -76,6 +64,12 @@ type TranscriptSection = {
   key: TranscriptSectionKey;
   title: string;
   subtitle: string;
+};
+
+type DiagramItem = {
+  title: string;
+  image: string;
+  reflection: string;
 };
 
 const participants: Participant[] = [
@@ -354,63 +348,28 @@ const similarityQuiz: SimilarityQuestion[] = [
   },
 ];
 
-const theoryQuiz: TheoryQuestion[] = [
+const diagramItems: DiagramItem[] = [
   {
-    question: "Wie verstehst du Zeit am ehesten?",
-    options: [
-      { text: "Als etwas Inneres: Zeit zeigt sich erst in Erinnerung, Aufmerksamkeit & Erwartung.", theory: "Augustinus" },
-      { text: "Als Herausforderung, mit dem Unkontrollierbaren gelassen umzugehen.", theory: "Marcus Aurelius" },
-      { text: "Als Struktur, durch die wir unsere Welt überhaupt erleben & ordnen.", theory: "Kant" },
-      { text: "Als existenzielle Frage: Wie lebe ich trotz Vergänglichkeit intensiv?", theory: "Nietzsche" },
-    ],
+    title: "Wahrnehmung der Geschwindigkeit",
+    image: "/diagramm-geschwindigkeit.png",
+    reflection: "*insert text*",
   },
   {
-    question: "Welche Aussage über Zeitangst spricht dich am meisten an?",
-    options: [
-      { text: "Zeitangst entsteht, wenn Vergangenheit, Gegenwart & Zukunft innerlich auseinanderdriften.", theory: "Augustinus" },
-      { text: "Zeitangst kann gemildert werden, wenn ich mich auf meine Haltung zu Zeit konzentriere.", theory: "Marcus Aurelius" },
-      { text: "Zeitangst zeigt, wie stark wir versuchen, Erfahrungen zu strukturieren & selbst zu beeinflussen.", theory: "Kant" },
-      { text: "Zeitangst ist ein Anstoss, mutiger zu leben statt nur zu warten.", theory: "Nietzsche" },
-    ],
+    title: "Abfinden mit nicht Erlebtem",
+    image: "/diagramm-abfinden.png",
+    reflection: "*insert text*",
   },
   {
-    question: "Was macht einen bedeutsamen Moment am ehesten aus?",
-    options: [
-      { text: "Innere Aufmerksamkeit auf die Gegenwart.", theory: "Augustinus" },
-      { text: "Das Besitzen einer bewussten & ruhigen Haltung.", theory: "Marcus Aurelius" },
-      { text: "Einen Moment überhaupt bewusst wahrnehmen & einordnen.", theory: "Kant" },
-      { text: "Mut, Aktivität & Entscheidung trotz Vergänglichkeit.", theory: "Nietzsche" },
-    ],
+    title: "Akzeptanz von Vergänglichkeit",
+    image: "/diagramm-vergaenglichkeit.png",
+    reflection: "*insert text*",
   },
   {
-    question: "Welche Frage passt am ehesten zu deiner Reflexion?",
-    options: [
-      { text: "Wie erlebe ich Zeit in meinem Inneren?", theory: "Augustinus" },
-      { text: "Was liegt in meiner Macht & was nicht?", theory: "Marcus Aurelius" },
-      { text: "Wie prägt Zeit überhaupt mein Erkennen?", theory: "Kant" },
-      { text: "Kann ich mein Leben trotz Zufall & Vergänglichkeit annehmen?", theory: "Nietzsche" },
-    ],
+    title: "Bewertung von Langeweile",
+    image: "/diagramm-langeweile.png",
+    reflection: "*insert text*",
   },
 ];
-
-const theoryDescriptions: Record<TheoryName, { title: string; text: string }> = {
-  Augustinus: {
-    title: "Augustinus: Confessiones (Buch XI)",
-    text: "In den Confessiones, besonders in Buch XI, untersucht Augustinus die Frage, was Zeit überhaupt ist & wie der Mensch sie erlebt. Er begründet dort, dass Vergangenheit & Zukunft nicht unabhängig vor uns liegen, sondern im Bewusstsein gegenwärtig werden. Dies geschieht als Erinnerung, Aufmerksamkeit & Erwartung. Zeit erscheint deshalb nicht einfach als äussere Grösse, sondern als innere Erfahrung der Seele. Dadurch wird verständlich, warum Zeitwahrnehmung subjektiv schwankt & warum Menschen Zeit auch als Belastung empfinden können.",
-  },
-  "Marcus Aurelius": {
-    title: "Marcus Aurelius: Selbstbetrachtungen",
-    text: "In den Selbstbetrachtungen entwickelt Marcus Aurelius eine stoische Sicht auf das menschliche Leben unter den Bedingungen von Vergänglichkeit, Veränderung & Unsicherheit. Er begründet, dass nicht alles in unserer Macht liegt, dafür aber unsere Haltung zu dem was geschieht. Zeit wird dabei als Teil einer grösseren Ordnung gesehen, auf die man mit Klarheit & Selbstdisziplin antworten soll. Bedeutend ist daher weniger die Kontrolle über den Lauf der Zeit als die Fähigkeit, dem Augenblick mit eigener & kontrollierter inneren Ruhe zu begegnen.",
-  },
-  Kant: {
-    title: "Kant: Kritik der reinen Vernunft (Transzendentale Ästhetik)",
-    text: "In der Kritik der reinen Vernunft begründet Kant, dass Zeit keine Eigenschaft der Dinge an sich ist, sondern eine Form unserer Anschauung. Das bedeutet, dass wir die Welt immer schon zeitlich geordnet wahrnehmen, bevor wir überhaupt über einzelne Erfahrungen nachdenken. Zeit ist eine Bedingung der Möglichkeit von Erfahrung & weniger ein blosser Ablauf, welcher unabhängig vom Menschen da wäre. Dadurch verschiebt sich die Frage nach Zeit von der äusseren Welt auf die Struktur unseres Erkennens.",
-  },
-  Nietzsche: {
-    title: "Nietzsche: Die fröhliche Wissenschaft (§ 341)",
-    text: "In der fröhlichen Wissenschaft formuliert Nietzsche mit dem Gedanken der ewigen Wiederkunft, eine grundlegende Frage zum Leben. Dabei geht es um die Überlegung, ob man das eigene Leben in all seinen Teilen immer wieder so annehmen könnte, wie es ist. Zeit wird hier zur Herausforderung, weil jeder Augenblick ein so grosses Gewicht erhält, dass er nicht gleichgültig bleiben kann. Die Frage nach Vergänglichkeit führt bei Nietzsche zur Möglichkeit von Mut, Verantwortung & der bewussten Annahme des eigenen Lebens.",
-  },
-};
 
 function scoreSimilarity(answers: Array<number | null>) {
   const totals = new Array(participants.length).fill(0);
@@ -424,26 +383,6 @@ function scoreSimilarity(answers: Array<number | null>) {
   const max = Math.max(...totals);
   const winnerIndex = max > 0 ? totals.indexOf(max) : 0;
   return { winner: participants[winnerIndex], totals };
-}
-
-function scoreTheory(answers: Array<number | null>) {
-  const totals: Record<TheoryName, number> = {
-    Augustinus: 0,
-    "Marcus Aurelius": 0,
-    Kant: 0,
-    Nietzsche: 0,
-  };
-
-  answers.forEach((answerIndex, qIndex) => {
-    if (answerIndex == null) return;
-    const theory = theoryQuiz[qIndex].options[answerIndex].theory;
-    totals[theory] += 1;
-  });
-
-  const winner = (Object.entries(totals) as [TheoryName, number][])
-    .sort((a, b) => b[1] - a[1])[0]?.[0] ?? "Augustinus";
-
-  return { winner, totals };
 }
 
 function SectionTitle({ icon: Icon, eyebrow, title, text }: SectionTitleProps) {
@@ -697,60 +636,46 @@ function SimilarityQuizSection() {
 }
 
 function TheoryQuizSection() {
-  const [answers, setAnswers] = useState<Array<number | null>>(Array(theoryQuiz.length).fill(null));
-  const result = useMemo(() => scoreTheory(answers), [answers]);
-  const complete = answers.every((entry) => entry != null);
-  const theory = theoryDescriptions[result.winner];
-
   return (
-    <section id="quiz-theorie" className="space-y-8">
+    <section id="diagramme" className="space-y-8">
       <SectionTitle
         icon={Hourglass}
         eyebrow="Visualisierung 5"
-        title="Welche Zeittheorie passt zu deiner Wahrnehmung?"
-        text={`Hier kann man in einem weiteren Quiz herausfinden, welche von 4 bekannten Sichten über die Zeit, am ehesten zu einem passt. Mit wenigen zusammenfassenden Fragen kann natürlich kein genaues geisteswissenschaftliches Ergebnis erzielt werden. Bei weiterem Interesse lohnt es sich, die erwähnten Schriften von Augustinus, Marcus Aurelius, Kant & Nietzsche genauer nachzulesen.`}
+        title="Diagramme zur Auswertung"
+        text={`Hier sind vier zentrale Diagramme aus unserer Auswertung zu sehen. Unter jedem Diagramm kann man durch einen Klick auf „Überlege“ eine kurze Deutungsfläche öffnen und dort Gedanken, Beobachtungen oder eine gemeinsame Interpretation einfügen.`}
       />
 
-      <Card className="rounded-3xl shadow-sm">
-        <CardHeader>
-          <CardTitle>Zeitangst & Zeitverständnis</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-8">
-          {theoryQuiz.map((question, qIndex) => (
-            <div key={qIndex} className="space-y-3">
-              <h3 className="font-medium text-slate-900">{qIndex + 1}. {question.question}</h3>
-              <div className="grid gap-3 md:grid-cols-2">
-                {question.options.map((option, oIndex) => {
-                  const active = answers[qIndex] === oIndex;
-                  return (
-                    <button
-                      key={oIndex}
-                      onClick={() => {
-                        const next = [...answers];
-                        next[qIndex] = oIndex;
-                        setAnswers(next);
-                      }}
-                      className={`rounded-2xl border p-4 text-left transition ${active ? "border-slate-900 bg-slate-900 text-white" : "bg-white hover:bg-slate-50"}`}
-                    >
-                      {option.text}
-                    </button>
-                  );
-                })}
+      <div className="grid gap-8">
+        {diagramItems.map((diagram, index) => (
+          <Card key={index} className="rounded-3xl shadow-sm overflow-hidden">
+            <CardHeader>
+              <CardTitle>{diagram.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="overflow-hidden rounded-2xl border bg-slate-50">
+                <img
+                  src={diagram.image}
+                  alt={diagram.title}
+                  className="w-full object-contain"
+                />
               </div>
-            </div>
-          ))}
 
-          <AnimatePresence>
-            {complete && (
-              <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="rounded-3xl border bg-slate-50 p-6 space-y-3">
-                <div className="text-sm text-slate-500">Deine Theorie</div>
-                <h3 className="text-2xl font-semibold">{theory.title}</h3>
-                <p className="text-slate-700 leading-relaxed">{theory.text}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </CardContent>
-      </Card>
+              <Accordion type="single" collapsible className="space-y-2">
+                <AccordionItem value={`diagram-${index}`} className="rounded-2xl border bg-white px-5 shadow-sm">
+                  <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
+                    Überlege
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="rounded-xl bg-slate-50 p-4 border text-slate-700 whitespace-pre-line">
+                      {diagram.reflection}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </section>
   );
 }
@@ -1219,7 +1144,7 @@ export default function ZeitAngstWebsitePrototype() {
             <TabsTrigger value="questions" className="rounded-xl">Fragen</TabsTrigger>
             <TabsTrigger value="transcripts" className="rounded-xl">Transkripte</TabsTrigger>
             <TabsTrigger value="quiz" className="rounded-xl">Ähnlichkeitsquiz</TabsTrigger>
-            <TabsTrigger value="theory" className="rounded-xl">Theorienquiz</TabsTrigger>
+            <TabsTrigger value="theory" className="rounded-xl">Diagramme</TabsTrigger>
             <TabsTrigger value="reflection" className="rounded-xl">Reflexion</TabsTrigger>
           </TabsList>
 
